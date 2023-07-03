@@ -24,7 +24,7 @@ const router = createRouter({
 			name: 'about',
 			component: () => import('../views/AboutView.vue'),
 			meta: {
-				title: '关于',
+				title: '主页',
 				keepAlive: true,
 				requireAuth: false
 			}

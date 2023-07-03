@@ -70,6 +70,10 @@ increment()
 	</van-button>
 
 
+	<h1>这里是 Home 页面</h1>
+	<h2>All great deeds and all great thoughts have a ridiculous beginning.</h2>
+	<h3 ref="showFetchData"></h3>
+	<h3 ref="showAxiosData"></h3>
 </template>
 
 <style lang="scss" scoped>
