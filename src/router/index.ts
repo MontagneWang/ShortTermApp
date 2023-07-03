@@ -1,12 +1,13 @@
 import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Login from '../components/TheLogin.vue'
 import pinia from '../stores/store'
 import {useCounterStore} from "@/stores/counter"
 import {storeToRefs} from "pinia";
 
 const store = useCounterStore(pinia)
 
-const {token} = storeToRefs(store)
+const {token, isUserLoggedIn} = storeToRefs(store)
 // @ts-ignore
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -53,17 +54,17 @@ const router = createRouter({
 			meta: {
 				title: '主页',
 				keepAlive: true,
-				requireAuth: false
+				requireAuth: true
 			}
 		},
 		{
 			path: '/login',
 			name: 'Login',
-			component: () => import('../components/TheLogin.vue'),
+			component: Login,
 			meta: {
-				title: '主页',
+				title: '登录',
 				keepAlive: true,
-				requireAuth: true
+				requireAuth: false
 			}
 		},
 	]
@@ -94,12 +95,10 @@ router.beforeEach((to, from, next) => {
  */
 router.beforeEach((to, from, next) => {
 	let meta = to.meta as RouteMeta;
-	if (!meta.requireAuth) {
-		next();
-	} else if (meta.requireAuth && !token) {
-		next({
-			name: 'Login',
-		});
+	if (meta.requireAuth && !isUserLoggedIn) {
+		next('/login');
+	} else {
+		next()
 	}
 });
 
