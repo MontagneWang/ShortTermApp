@@ -9,8 +9,7 @@ let isLogin = true
 <template>
 	<main>
 		<div class="bg">
-			<img src="https://article.biliimg.com/bfs/article/cf65477bf0c5fd14cb66c8f3080fcb4ec2ba5847.jpg"/>
-		</div>
+			<img src="https://article.biliimg.com/bfs/article/403f3915496f8859b2caed4f4ad6a0dfc02d0c2b.jpg"/>		</div>
 		<div class="container">
 			<div class="input">
 				<form @click.prevent="">

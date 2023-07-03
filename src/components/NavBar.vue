@@ -6,12 +6,20 @@ import HomeContent2 from "@/components/HomeContent/HomeContent2.vue";
 const active = ref(0);
 // todo 触发请求事件
 // const onClickTab = ({title}) => showToast(title);
-const onClickTab = ()=>{}
+const onClickTab = () => {
+}
 </script>
 
 <template>
+	<div class="header">
+		<div class="block">
+			<van-icon name="search"/>
+			<van-icon name="bell"/>
+		</div>
+	</div>
 	<van-tabs v-model:active="active"
-	          animated sticky swipeable
+	          animated
+	          class="navbar" sticky swipeable
 	          @click-tab="onClickTab">
 
 		<van-tab name="推荐" title="推荐">
@@ -26,6 +34,23 @@ const onClickTab = ()=>{}
 </template>
 
 <style lang="scss" scoped>
+.header{
+	position: relative;
+	height: 4vh;
+	.block {
+		background-color: #fff;
+		font-size: 1.5rem;
+		position: fixed;
+		z-index: 2;
+		i:first-child{
+			transform: translate(7vw,5.5vh);
+		}
+		i:last-child{
+			transform: translate(83vw,5.5vh);
+		}
+	}
+}
+
 
 :deep(#van-tabs-1-0) {
 	span {
