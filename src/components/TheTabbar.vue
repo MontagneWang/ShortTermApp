@@ -7,10 +7,18 @@ const active = ref('home');
 
 <template>
 	<van-tabbar v-model="active">
-		<van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
-		<van-tabbar-item icon="like-o">关注</van-tabbar-item>
-		<van-tabbar-item icon="apps-o">应用</van-tabbar-item>
-		<van-tabbar-item icon="contact">主页</van-tabbar-item>
+		<van-tabbar-item icon="wap-home-o">
+			<RouterLink to="/">首页</RouterLink>
+		</van-tabbar-item>
+		<van-tabbar-item icon="like-o">
+			<RouterLink to="/focus">关注</RouterLink>
+		</van-tabbar-item>
+		<van-tabbar-item icon="apps-o">
+			<RouterLink to="/app">应用</RouterLink>
+		</van-tabbar-item>
+		<van-tabbar-item icon="contact">
+			<RouterLink to="/about">主页</RouterLink>
+		</van-tabbar-item>
 	</van-tabbar>
 </template>
 

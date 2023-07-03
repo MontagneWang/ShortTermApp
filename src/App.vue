@@ -6,7 +6,6 @@ import TheTabbar from "@/components/TheTabbar.vue";
 
 <template>
 
-	<nav-bar/>
 	<the-tabbar/>
 
 	<router-view v-slot="{ Component }">

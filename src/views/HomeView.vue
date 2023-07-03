@@ -5,6 +5,7 @@ import {useCounterStore} from "@/stores/counter";
 import {storeToRefs} from "pinia";
 // toast
 import Modal from '../utils/ToastComp.vue'
+import NavBar from "@/components/NavBar.vue";
 
 const showModal = ref(false)
 
@@ -28,14 +29,14 @@ onMounted(async () => {
 		Object.assign(data, fetchData)
 		// console.log(data)
 		// console.log(data['data']['title'])
-		showFetchData.value.innerText = JSON.stringify(data['data']['title'])
+		// showFetchData.value.innerText = JSON.stringify(data['data']['title'])
 	} catch (error) {
 		console.error('获取出错：', error);
 	}
 
 	let songs = await getUrl('/api/x/web-interface/view?bvid=BV1Dx411K7kA')
 	if (songs['code'] !== 'ERR_BAD_REQUEST') {
-		showAxiosData.value.innerText = JSON.stringify(songs['data']['title'])
+		// showAxiosData.value.innerText = JSON.stringify(songs['data']['title'])
 	}
 
 })
@@ -52,23 +53,8 @@ increment()
 </script>
 
 <template>
-	<Teleport to="body">
-		<modal :show="showModal" @close="showModal = false">
-			<template #header>
-				<h3>嵌入内容</h3>
-			</template>
-			<template #body>
-			</template>
-		</modal>
-	</Teleport>
-
-
-	<van-button style="display: block;width: 120px;margin: 3vh auto 0;"
-	            type="primary"
-	            @click.prevent="showModal = true">
-		Toast 弹窗
-	</van-button>
-
+<!-- idea	实现方式：二级路由/tab切换-->
+	<nav-bar/>
 
 </template>
 

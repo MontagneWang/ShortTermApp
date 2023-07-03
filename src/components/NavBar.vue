@@ -1,19 +1,59 @@
 <script lang="ts" setup>
+import {onMounted, ref} from "vue";
+import HomeContent1 from "@/components/HomeContent/HomeContent1.vue";
+import HomeContent2 from "@/components/HomeContent/HomeContent2.vue";
 
+const active = ref(0);
+// todo 触发请求事件
+// const onClickTab = ({title}) => showToast(title);
+const onClickTab = ()=>{}
 </script>
 
 <template>
-	<nav>
-		<RouterLink to="/">Home</RouterLink>
-		&emsp;|&emsp;
-		<RouterLink to="/about">About</RouterLink>
-	</nav>
+	<van-tabs v-model:active="active"
+	          animated sticky swipeable
+	          @click-tab="onClickTab">
+
+		<van-tab name="推荐" title="推荐">
+			<home-content1/>
+		</van-tab>
+
+		<van-tab name="热度" title="热度">
+			<home-content2/>
+		</van-tab>
+
+	</van-tabs>
 </template>
 
 <style lang="scss" scoped>
-nav{
-	text-align: center;
-	padding: 3vh;
-	border-bottom: 1px solid #000;
+
+:deep(#van-tabs-1-0) {
+	span {
+		transform: translateX(12vw);
+		font-size: 1.2rem;
+	}
 }
+
+:deep(#van-tabs-1-1) {
+	span {
+		transform: translateX(-12vw);
+		font-size: 1.2rem;
+	}
+}
+
+:deep(.van-tabs__line) {
+	display: none;
+}
+
+:deep(.van-tab--active) {
+	transform: scale(1.2);
+	transform-origin: 50% 50%;
+}
+
+//:deep([aria-selected="true"]){
+//	transform: scale(1.2);
+//	transform-origin:50% 50%;
+//}
+
+
 </style>

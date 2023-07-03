@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<h1>这里是 登录 页</h1>
+<h1>这里是 应用 页面</h1>
 </template>
 
 <style lang="scss" scoped>

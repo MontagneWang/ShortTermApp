@@ -7,9 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    3: typeof import('./src/components/HomeContent/3.vue')['default']
+    HomeContent1: typeof import('./src/components/HomeContent/HomeContent1.vue')['default']
+    HomeContent2: typeof import('./src/components/HomeContent/HomeContent2.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Test3: typeof import('./src/components/HomeContent/test3.vue')['default']
     TheLogin: typeof import('./src/components/TheLogin.vue')['default']
     TheTabbar: typeof import('./src/components/TheTabbar.vue')['default']
     VanButton: typeof import('vant/es')['Button']
@@ -19,7 +23,9 @@ declare module 'vue' {
     VanProgress: typeof import('vant/es')['Progress']
     VanSwipe: typeof import('vant/es')['Swipe']
     VanSwipeItem: typeof import('vant/es')['SwipeItem']
+    VanTab: typeof import('vant/es')['Tab']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
+    VanTabs: typeof import('vant/es')['Tabs']
   }
 }
