@@ -50,19 +50,19 @@ let articleList = reactive([
 			<div class="button">
 				<RouterLink to="/draw">
 					<div class="button1">
-						<img alt="" src="../../assets/画板.png">
+						<img alt="" src="../../assets/draw.png">
 					</div>
 				</RouterLink>
 				<RouterLink to="/chat">
 					<div class="button2">
-						<img alt="" src="../../assets/沟通.png">
+						<img alt="" src="../../assets/chat.png">
 					</div>
 				</RouterLink>
 				<div class="button3">
-					<img alt="" src="../../assets/精灵日报.png">
+					<img alt="" src="../../assets/paper.png">
 				</div>
 				<div class="button4">
-					<img alt="" src="../../assets/科技.png">
+					<img alt="" src="../../assets/science.png">
 				</div>
 			</div>
 			<div class="buttonName">

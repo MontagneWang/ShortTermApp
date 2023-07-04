@@ -11,8 +11,8 @@ import {visualizer} from 'rollup-plugin-visualizer'
 // https://vitejs.dev/config/
 export default defineConfig({
 	// 两个选项打包时使用
-	// base: './',
-	// assetsDir:'assets',
+	base: './',
+	assetsDir:'assets',
 
   plugins: [
     vue(),
