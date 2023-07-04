@@ -15,6 +15,7 @@ let classObject = {
 	'left-arrow': true,
 	'left-text': "返回"
 }
+
 </script>
 
 <template>
