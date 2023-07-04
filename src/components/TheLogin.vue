@@ -3,7 +3,12 @@ import {ref} from "vue";
 
 let username = ref('')
 let password = ref('')
+let token = ref('')
 let isLogin = true
+
+let handleSubmit = ()=>{
+
+}
 </script>
 
 <template>
@@ -12,7 +17,7 @@ let isLogin = true
 			<img src="https://article.biliimg.com/bfs/article/403f3915496f8859b2caed4f4ad6a0dfc02d0c2b.jpg"/>		</div>
 		<div class="container">
 			<div class="input">
-				<form @click.prevent="">
+				<form @click.prevent="handleSubmit">
 					<div>
 						<label>
 							<van-icon name="user-circle-o"/>

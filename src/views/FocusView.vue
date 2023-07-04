@@ -1,11 +1,17 @@
 <script lang="ts" setup>
 
+import TheHeader from "@/components/TheHeader.vue";
 </script>
 
 <template>
-	<h1>这里是 关注 页面</h1>
+	<the-header msg="关注"/>
+	<div class="container">
+		<h1>这里是 关注 页面</h1>
+	</div>
 </template>
 
 <style lang="scss" scoped>
-
+.container{
+	margin-top: 10vh;
+}
 </style>

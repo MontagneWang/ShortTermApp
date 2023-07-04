@@ -41,15 +41,6 @@ onMounted(async () => {
 
 })
 
-// Counter 使用
-// `count` 和 `doubleCount` 是响应式的 ref
-// 作为 action 的 increment 可以直接解构
-let counter = useCounterStore()
-const {count, doubleCount} = storeToRefs(counter)
-const {increment} = counter
-increment()
-// console.log(count.value, doubleCount.value)
-
 </script>
 
 <template>

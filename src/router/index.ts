@@ -67,6 +67,36 @@ const router = createRouter({
 				requireAuth: false
 			}
 		},
+		{
+			path: '/article',
+			name: 'Article',
+			component: () => import('../views/ArticlePage.vue'),
+			meta: {
+				title: '文章',
+				keepAlive: true,
+				requireAuth: false
+			}
+		},
+		{
+			path: '/draw',
+			name: 'Draw',
+			component: () => import('../views/FunctionPages/AiDraw.vue'),
+			meta: {
+				title: 'AI绘图',
+				keepAlive: true,
+				requireAuth: false
+			}
+		},
+		{
+			path: '/chat',
+			name: 'Chat',
+			component: () => import('../views/FunctionPages/AiChat.vue'),
+			meta: {
+				title: 'AI对话',
+				keepAlive: true,
+				requireAuth: false
+			}
+		},
 	]
 })
 

@@ -8,12 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     3: typeof import('./src/components/HomeContent/3.vue')['default']
+    ArticleItem: typeof import('./src/components/ArticleItem.vue')['default']
+    ArticlePage: typeof import('./src/components/ArticlePage.vue')['default']
+    BackHeader: typeof import('./src/components/BackHeader.vue')['default']
     HomeContent1: typeof import('./src/components/HomeContent/HomeContent1.vue')['default']
     HomeContent2: typeof import('./src/components/HomeContent/HomeContent2.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Test3: typeof import('./src/components/HomeContent/test3.vue')['default']
+    TheHeader: typeof import('./src/components/TheHeader.vue')['default']
     TheLogin: typeof import('./src/components/TheLogin.vue')['default']
     TheTabbar: typeof import('./src/components/TheTabbar.vue')['default']
     VanButton: typeof import('vant/es')['Button']

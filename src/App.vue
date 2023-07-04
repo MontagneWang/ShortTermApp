@@ -18,11 +18,14 @@ import TheTabbar from "@/components/TheTabbar.vue";
 </template>
 
 <style lang="scss">
+#app{
+	max-width: 475px;
+	margin: auto;
+}
 * {
 	// 注意这里不能添加 !important，否则 Vant 组件库的 Icon 会被覆盖
 	font-family: LXGW WenKai Lite, serif;
 }
-
 @media (min-width: 1024px) {
 }
 </style>

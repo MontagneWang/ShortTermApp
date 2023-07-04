@@ -45,8 +45,8 @@ onMounted(async () => {
 // 作为 action 的 increment 可以直接解构
 let counter = useCounterStore()
 const {count, doubleCount} = storeToRefs(counter)
-const {increment} = counter
-increment()
+// const {increment} = counter
+// increment()
 // console.log(count.value, doubleCount.value)
 
 </script>
