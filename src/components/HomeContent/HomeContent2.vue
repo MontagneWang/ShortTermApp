@@ -32,13 +32,58 @@ let articleList = reactive([
 </script>
 
 <template>
-	<article-item
-			v-for="item in articleList"
-			:key="item.articleId"
-			:data="item"
-			:isHot="true"/>
+	<div class="container">
+		<article-item
+				v-for="item in articleList"
+				:key="item.articleId"
+				:data="item"
+				:isHot="true"/>
+
+		<div class="more">
+			查看更多
+		</div>
+		<div class="recommendUser">
+			<h3>推荐用户</h3>
+		</div>
+
+		<h3>作品集</h3>
+		<div class="collection">
+			<div class="example"></div>
+			<div class="example"></div>
+			<div class="example"></div>
+		</div>
+	</div>
+
 </template>
 
 <style lang="scss" scoped>
+.more {
+	text-align: center;
+	margin: 3vh;
+}
 
+.recommendUser {
+	width: 100vw;
+	height: 20vh;
+	background-color: #fffdf8;
+	border: 1px solid #000000;
+	margin-bottom: 3vh;
+}
+
+.collection {
+	border: 1px solid #000000;
+	width: 100vw;
+	height: 40vh;
+	margin-bottom: 8vh;
+	display: flex;
+	justify-content: space-evenly;
+
+	.example {
+		width: 28vw;
+		height: 80%;
+		margin-top: 4%;
+		border-radius: 10px;
+		background-color: #ccc;
+	}
+}
 </style>

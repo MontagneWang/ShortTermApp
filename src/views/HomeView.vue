@@ -6,13 +6,10 @@ import {storeToRefs} from "pinia";
 // toast
 import Modal from '../utils/ToastComp.vue'
 import NavBar from "@/components/NavBar.vue";
+import BackHeader from "@/components/BackHeader.vue";
 
 const showModal = ref(false)
 
-// @ts-ignore
-// defineProps<{
-// 	msg: string
-// }>()
 
 // 数据获取部分
 let data = reactive([])
@@ -44,14 +41,11 @@ onMounted(async () => {
 </script>
 
 <template>
-<!-- idea	实现方式：二级路由/tab切换-->
+	<back-header :is-home="true" title="首页"/>
 	<nav-bar/>
 
 </template>
 
 <style lang="scss" scoped>
-* {
-	text-align: center;
-}
 
 </style>

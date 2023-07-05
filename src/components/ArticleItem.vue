@@ -50,6 +50,7 @@ let toArticlePage = async articleId => {
 	background-color: #fffdf8 !important;
 	padding: 10px;
 	box-sizing: border-box;
+	text-align: left;
 
 	.title {
 		font-size: 1.5rem;

@@ -12,7 +12,7 @@ const onClickTab = () => {
 </script>
 
 <template>
-	<the-header msg=""/>
+	<!--<the-header msg=""/>-->
 	<van-tabs v-model:active="active"
 	          animated
 	          class="navbar"
@@ -23,7 +23,7 @@ const onClickTab = () => {
 			<home-content1/>
 		</van-tab>
 
-		<van-tab name="热度" title="热度">
+		<van-tab name="热度"  title="热度">
 			<home-content2/>
 		</van-tab>
 
@@ -31,7 +31,13 @@ const onClickTab = () => {
 </template>
 
 <style lang="scss" scoped>
-
+.navbar{
+	margin-top: -2vh;
+	//z-index: 1;
+}
+:deep(.van-tabs__nav){
+	//transform:translateY(-4vh);
+}
 
 :deep(#van-tabs-1-0) {
 	span {

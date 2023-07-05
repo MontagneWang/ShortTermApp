@@ -125,7 +125,7 @@ router.beforeEach((to, from, next) => {
  */
 router.beforeEach((to, from, next) => {
 	let meta = to.meta as RouteMeta;
-	if (meta.requireAuth && !isUserLoggedIn) {
+	if (meta.requireAuth && !isUserLoggedIn.value) {
 		next('/login');
 	} else {
 		next()

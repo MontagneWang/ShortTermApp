@@ -3,7 +3,7 @@ import {defineStore} from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
 	let token = ref('')
-	let isUserLoggedIn = false
+	let isUserLoggedIn = ref(false)
 	let articleData = reactive({
 		title: String,
 		articleId: String,

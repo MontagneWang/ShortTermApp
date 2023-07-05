@@ -2,27 +2,37 @@
 import {defineProps, ref} from "vue";
 
 const props = defineProps({
-	title: String
+	title: String,
+	isHome: Boolean
 })
+let {title, isHome} = props
 const onBack = () => history.back();
 const onClickLeft = () => {
 }
 const onClickRight = () => {
 };
-let isHome = ref(false)
-let classObject = {
-//	todo 如果是在某些页面，则显示返回按钮；如果不是，则显示搜索按钮
+let classBack = {
 	'left-arrow': true,
 	'left-text': "返回"
 }
+let classHome = {
+	'left-arrow': false,
+	'left-text': ""
+}
 
+console.log(isHome)
 </script>
 
 <template>
-	<!--todo 可以考虑把tabbar也合并到这里-->
-	<van-nav-bar :title="props.title"
-	             v-bind="isHome ? '' : classObject"
+	<van-nav-bar :title="title"
+	             v-bind="isHome ? classHome : classBack"
 	             @click-left="isHome ? onClickLeft() : onBack()">
+		<template #left>
+			<van-icon v-show="isHome" name="search" size="1.5rem"
+			          @click.prevent="console.log(0)"/>
+			<van-icon v-show="!isHome" name="arrow-left" size="1.5rem"
+			          @click.prevent="console.log(0)"/>
+		</template>
 		<template #right>
 			<van-icon name="bell" size="1.5rem"
 			          @click.prevent="console.log(1)"/>
@@ -36,6 +46,9 @@ let classObject = {
 </template>
 
 <style lang="scss" scoped>
+:deep(.van-nav-bar__left, .van-nav-bar__right){
+	//z-index: 3;
+}
 :deep(.van-nav-bar__content) {
 	height: 10vh;
 	--van-nav-bar-title-font-size: 1.5rem;

@@ -23,5 +23,7 @@ const active = ref('home');
 </template>
 
 <style lang="scss" scoped>
-
+.van-tabbar--fixed {
+	z-index: 2;
+}
 </style>
