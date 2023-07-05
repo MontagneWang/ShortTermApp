@@ -11,22 +11,28 @@ import BackHeader from "@/components/BackHeader.vue";
 		<h3>AI绘画</h3>
 		<div class="draw">
 			<div class="picLeft">
-
+				<img alt="" src="../assets/ai/ai3.webp">
 			</div>
 			<div class="picRight">
 				<div class="pic">
-
+					<img alt="" src="../assets/ai/ai1.webp">
 				</div>
 				<div class="pic">
-
+					<img alt="" src="../assets/ai/ai2.webp">
 				</div>
 			</div>
 		</div>
 		<h3>对话机器人</h3>
 		<div class="chat">
-			<div class="example"></div>
-			<div class="example"></div>
-			<div class="example"></div>
+			<div class="example">
+				<img alt="" src="../assets/chat/1.png">
+			</div>
+			<div class="example">
+				<img alt="" src="../assets/chat/2.png">
+			</div>
+			<div class="example">
+				<img alt="" src="../assets/chat/3.png">
+			</div>
 		</div>
 		<h3>其他</h3>
 		<div class="other">
@@ -49,9 +55,6 @@ import BackHeader from "@/components/BackHeader.vue";
 	display: flex;
 	justify-content: space-evenly;
 
-	img {
-		width: 100vw;
-	}
 
 	.picLeft {
 		width: 45vw;
@@ -59,6 +62,12 @@ import BackHeader from "@/components/BackHeader.vue";
 		margin-top: 3%;
 		background-color: #ccc;
 		border-radius: 15px;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+			transform: translateX(-20%);
+		}
 	}
 
 	.picRight {
@@ -74,6 +83,11 @@ import BackHeader from "@/components/BackHeader.vue";
 			height: 45%;
 			background-color: #ccc;
 			border-radius: 10px;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
 		}
 	}
 }
@@ -90,6 +104,10 @@ import BackHeader from "@/components/BackHeader.vue";
 		margin-top: 4%;
 		border-radius: 10px;
 		background-color: #ccc;
+		img {
+			width: 100%;
+			border-radius: 10px;
+		}
 	}
 }
 

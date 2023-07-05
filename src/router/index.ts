@@ -97,6 +97,16 @@ const router = createRouter({
 				requireAuth: false
 			}
 		},
+		{
+			path: '/notice',
+			name: 'Notice',
+			component: () => import('../views/NoticeView.vue'),
+			meta: {
+				title: '消息中心',
+				keepAlive: true,
+				requireAuth: false
+			}
+		},
 	]
 })
 

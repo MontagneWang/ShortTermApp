@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {defineProps} from "vue";
+import {computed, defineProps, ref} from "vue";
 import {useRouter} from 'vue-router'
 import {postUrl} from "@/api/postData";
 
@@ -20,6 +20,7 @@ let toArticlePage = async articleId => {
 	// let articleData = await postUrl('',config)
 	await router.push('/article')
 }
+
 </script>
 
 <template>
@@ -42,9 +43,16 @@ let toArticlePage = async articleId => {
 </template>
 
 <style lang="scss" scoped>
+.color1 {
+	background-color: #ff0000;
+}
+
+.color2 {
+	background-color: #ff9000;
+}
+
 .container {
 	width: 100vw;
-	height: 18vh;
 	border: 1px solid #000000;
 	margin-bottom: 8px;
 	background-color: #fffdf8 !important;
