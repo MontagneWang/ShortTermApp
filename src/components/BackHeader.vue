@@ -4,6 +4,7 @@ import router from "@/router";
 import Modal from '../utils/ToastComp.vue'
 import {useCounterStore} from "@/stores/counter";
 import {storeToRefs} from "pinia";
+import {showToast} from 'vant';
 
 let counter = useCounterStore()
 const {token, isUserLoggedIn} = storeToRefs(counter)
@@ -40,25 +41,26 @@ const quitLogin = () => {
 	router.push('/login')
 	location.reload();
 }
+
+const show = ref(false);
 </script>
 
 <template>
-	<Teleport to="body">
-		<modal :show="showModal" @close="showModal = false">
-			<template #header>
-				<van-button type="default">&emsp;设置&emsp;</van-button>
-			</template>
-			<template #body>
-				<van-button type="default">历史记录</van-button>
-				<br>
-				<van-button type="default">&emsp;关于&emsp;</van-button>
-				<br>
-				<van-button type="danger"
-				            @click.prevent="quitLogin">退出登录
-				</van-button>
-			</template>
-		</modal>
-	</Teleport>
+	<van-popup
+			v-model:show="show"
+			class="popup"
+			position="right"
+	>
+		<van-button type="default">&emsp;设置&emsp;</van-button>
+		<br>
+		<van-button type="default">历史记录</van-button>
+		<br>
+		<van-button type="default">&emsp;关于&emsp;</van-button>
+		<br>
+		<van-button type="danger"
+		            @click.prevent="quitLogin">退出登录
+		</van-button>
+	</van-popup>
 
 	<van-nav-bar :title="title"
 	             v-bind="isHome ? classHome : classBack"
@@ -74,7 +76,7 @@ const quitLogin = () => {
 			          @click.prevent="router.push('/notice')"/>
 			<van-icon name="wap-nav" size="1.5rem"
 			          style="margin: 0 1vw 0 4vw;"
-			          @click.prevent="showModal = true"/>
+			          @click="show = true"/>
 		</template>
 	</van-nav-bar>
 
@@ -82,6 +84,11 @@ const quitLogin = () => {
 </template>
 
 <style lang="scss" scoped>
+:deep(.popup) {
+	top: 0!important;
+	right: 0!important;
+	transform: translate3d(0, 0, 0)!important;
+}
 
 :deep(.modal-container) {
 	padding: 0;

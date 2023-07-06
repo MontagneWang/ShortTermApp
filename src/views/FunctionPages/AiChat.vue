@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 
 import BackHeader from "@/components/BackHeader.vue";
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
+import {postUrl} from "@/api/postData";
 
 interface chatFormat {
 	chat: string
@@ -29,15 +30,43 @@ let chatList = reactive([
 				'而强人工智能则是指具有与人类智能相似或超越人类智能的系统。强人工智能的目标是使计算机具备自主学习、理解自然语言、进行推理和决策等高级智能能力。',
 		isGPT: true
 	}
-
 ]) as chatFormat
 
+let url = '/api/sendgpt' // todo 聊天机器人接口
+let sendData = ref('')
+
+interface ReturnData {
+	code: number
+	data: string
+}
+
+let handleSend = async () => {
+	if (sendData.value.trim() !== '') {
+		chatList.push({
+			chat: sendData.value,
+			isGPT: false
+		})
+		let data = await postUrl(url, sendData.value) as ReturnData
+		sendData.value = ''
+		if (data.code === 200) {
+			chatList.push({
+				chat: data.data,
+				isGPT: true
+			})
+		}
+		setTimeout(() => {
+			window.scrollTo(0, document.body.scrollHeight);
+		}, 0)
+	}
+}
 const gptStyle = {
 	'text-align': 'left'
 }
 const peoStyle = {
 	'text-align': 'right'
 }
+
+
 </script>
 
 <template>
@@ -47,12 +76,18 @@ const peoStyle = {
 			<div v-for="item in chatList"
 			     :style="item.isGPT?gptStyle:peoStyle"
 			     class="chat">
-				{{ item.chat }}
+				<div v-if="item.isGPT" class="ava">
+					<img alt="" src="../../assets/chatGPT.png">
+				</div>
+				<div class="contain">
+					{{ item.chat }}
+				</div>
+
 			</div>
 		</div>
 		<div class="send">
-			<input type="text">
-			<button>Send</button>
+			<input v-model="sendData" type="text">
+			<button @click="handleSend">Send</button>
 		</div>
 	</div>
 	<!--<img src="../../assets/gpt.png" alt="">-->
@@ -63,12 +98,25 @@ const peoStyle = {
 .message {
 	margin-bottom: 20vh;
 
-	.chat{
-		width: 70vw;
+	.contain {
+		max-width: 65vw;
+		width: auto;
 		padding: 15px;
 		margin: 2vh auto;
-		border: 1px solid #000000;
+		border: 1px solid #66ccff;
 		border-radius: 7px;
+	}
+
+	.ava {
+		width: 30px;
+		float: left;
+		margin-left: 3vw;
+		margin-top: 8px;
+
+		img {
+			width: 100%;
+			border-radius: 50%;
+		}
 	}
 }
 
@@ -80,7 +128,7 @@ const peoStyle = {
 	bottom: 0;
 	box-sizing: border-box;
 	border-radius: 10px;
-	border: 1px solid #000000;
+	border: 1px solid #66ccff;
 	text-align: center;
 	padding: 2vh;
 	background-color: #fff;

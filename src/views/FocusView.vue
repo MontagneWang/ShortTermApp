@@ -13,6 +13,7 @@ import ShowUser from "@/components/ShowUser.vue";
 		<show-user title="推荐"/>
 		<div class="dynamic">
 			<h3 class="block">动态</h3>
+			<!--todo 动态样式完善-->
 			<div class="dynamicContain">
 			</div>
 			<div class="dynamicContain">
