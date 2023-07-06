@@ -8,7 +8,7 @@ import BackHeader from "@/components/BackHeader.vue";
 	<!--<the-header msg="应用"/>-->
 	<back-header :is-home="true" title="应用"/>
 	<div class="container">
-		<h3>AI绘画</h3>
+		<h3 class="block">AI绘画</h3>
 		<div class="draw">
 			<div class="picLeft">
 				<img alt="" src="../assets/ai/ai3.webp">
@@ -22,7 +22,7 @@ import BackHeader from "@/components/BackHeader.vue";
 				</div>
 			</div>
 		</div>
-		<h3>对话机器人</h3>
+		<h3 class="block">对话机器人</h3>
 		<div class="chat">
 			<div class="example">
 				<img alt="" src="../assets/chat/1.png">
@@ -34,7 +34,7 @@ import BackHeader from "@/components/BackHeader.vue";
 				<img alt="" src="../assets/chat/3.png">
 			</div>
 		</div>
-		<h3>其他</h3>
+		<h3 class="block">其他</h3>
 		<div class="other">
 			<div class="example"></div>
 			<div class="example"></div>
@@ -44,7 +44,10 @@ import BackHeader from "@/components/BackHeader.vue";
 </template>
 
 <style lang="scss" scoped>
-
+.block{
+	margin-left: 2vw;
+	border-left: 5px solid #66ccff;
+}
 .container {
 	background-color: #f4f4f4;
 }

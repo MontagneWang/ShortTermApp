@@ -5,19 +5,16 @@ import HomeContent2 from "@/components/HomeContent/HomeContent2.vue";
 import TheHeader from "@/components/TheHeader.vue";
 
 const active = ref(0);
-// todo 触发请求事件
-// const onClickTab = ({title}) => showToast(title);
-const onClickTab = () => {
-}
+
 </script>
 
 <template>
-	<!--<the-header msg=""/>-->
+	<!--@click-tab="onClickTab"-->
 	<van-tabs v-model:active="active"
 	          animated
 	          class="navbar"
 	          swipeable
-	          @click-tab="onClickTab">
+	          >
 
 		<van-tab name="推荐" title="推荐">
 			<home-content1/>

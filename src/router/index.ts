@@ -107,6 +107,16 @@ const router = createRouter({
 				requireAuth: false
 			}
 		},
+		{
+			path: '/pub',
+			name: 'Publish',
+			component: () => import('../views/PublishPage.vue'),
+			meta: {
+				title: '文章发布',
+				keepAlive: true,
+				requireAuth: false
+			}
+		},
 	]
 })
 

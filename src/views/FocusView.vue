@@ -12,7 +12,7 @@ import ShowUser from "@/components/ShowUser.vue";
 		<show-user title="关注用户"/>
 		<show-user title="推荐"/>
 		<div class="dynamic">
-			<h3>动态</h3>
+			<h3 class="block">动态</h3>
 			<div class="dynamicContain">
 			</div>
 			<div class="dynamicContain">
@@ -22,13 +22,13 @@ import ShowUser from "@/components/ShowUser.vue";
 </template>
 
 <style lang="scss" scoped>
+.block{
+	margin-left: 2vw;
+	border-left: 5px solid #66ccff;
+}
 .container {
 	background-color: #f4f4f4;
 	height: auto;
-
-	div h3 {
-		margin-left: 15px;
-	}
 }
 
 

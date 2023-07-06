@@ -1,10 +1,30 @@
 <script lang="ts" setup>
 import {reactive, ref} from "vue";
 import ArticleItem from "@/components/ArticleItem.vue";
+import {getUrl} from "@/api/getData";
 
 const active = ref(0);
-const onClickTab = () => {
+
+/**
+ * 切换标签时会触发事件，从左到右切换时 active 的值依次为 0 1 2 3
+ * 发送请求携带分类，接收返回数据
+ * return { code,articleList:[{}] }
+ */
+interface ReturnData {
+	code: number
+	articleList: Array<object>
 }
+
+let url = `https://localhost:8000/cate/${active.value}`	// todo 切换标签时发送请求
+const onClickTab = async (url: string) => {
+	let data = await getUrl(url) as ReturnData
+	if (data.code === 200) {
+		Object.assign(articleList, data)
+	} else {
+		// showModal.value = true
+	}
+}
+
 let articleList = reactive([
 	{
 		title: '人工智能：机器学习的崛起',
@@ -50,19 +70,19 @@ let articleList = reactive([
 			<div class="button">
 				<RouterLink to="/draw">
 					<div class="button1">
-						<img alt="" src="../../assets/draw.png">
+						<img alt="" src="../../assets/icon/pic.png">
 					</div>
 				</RouterLink>
 				<RouterLink to="/chat">
 					<div class="button2">
-						<img alt="" src="../../assets/chat.png">
+						<img alt="" src="../../assets/icon/message.png">
 					</div>
 				</RouterLink>
 				<div class="button3">
-					<img alt="" src="../../assets/paper.png">
+					<img alt="" src="../../assets/icon/file.png">
 				</div>
 				<div class="button4">
-					<img alt="" src="../../assets/science.png">
+					<img alt="" src="../../assets/icon/up.png">
 				</div>
 			</div>
 			<div class="buttonName">
@@ -83,26 +103,25 @@ let articleList = reactive([
 		<van-tabs v-model:active="active"
 		          animated
 		          sticky swipeable @click-tab="onClickTab">
-			<van-tab name="全站" title="全站">
-				<!--todo 切换标签时发送请求-->
+			<van-tab name="0" title="全站">
 				<article-item
 						v-for="item in articleList"
 						:key="item.articleId"
 						:data="item"/>
 			</van-tab>
-			<van-tab name="医疗保健" title="医疗保健">
+			<van-tab name="1" title="医疗保健">
 				<article-item
 						v-for="item in articleList"
 						:key="item.articleId"
 						:data="item"/>
 			</van-tab>
-			<van-tab name="智能控制" title="智能控制">
+			<van-tab name="2" title="智能控制">
 				<article-item
 						v-for="item in articleList"
 						:key="item.articleId"
 						:data="item"/>
 			</van-tab>
-			<van-tab name="金融服务" title="金融服务">
+			<van-tab name="3" title="金融服务">
 				<article-item
 						v-for="item in articleList"
 						:key="item.articleId"

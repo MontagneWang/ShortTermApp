@@ -46,7 +46,7 @@ let articleList = reactive([
 			<show-user title="推荐用户"/>
 		</div>
 
-		<h3>作品集</h3>
+		<h3 class="block">作品集</h3>
 		<div class="collection">
 			<div class="example">
 				<img alt="" src="../../assets/ai/ai4.webp">
@@ -63,6 +63,10 @@ let articleList = reactive([
 </template>
 
 <style lang="scss" scoped>
+.block{
+	margin-left: 2vw;
+	border-left: 5px solid #66ccff;
+}
 .more {
 	text-align: center;
 	margin: 3vh;

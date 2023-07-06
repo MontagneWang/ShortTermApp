@@ -29,7 +29,7 @@ interface ReturnData {
 }
 
 let url = '' // todo 登录验证接口
-let handleSubmit = async (url) => {
+let handleSubmit = async (url:string) => {
 	let data = await postUrl(url, config) as ReturnData
 	if (data.code === 200) {
 		isUserLoggedIn.value = true

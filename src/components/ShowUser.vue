@@ -10,7 +10,7 @@ let {title} = props
 <template>
 	<div class="focus">
 		<h3 class="block"> {{ title }}</h3>
-		<!--todo 有数据后可改成 v-for 渲染-->
+		<!--有数据后可改成 v-for 渲染-->
 		<div class="avatar">
 			<div><img alt="" src="../assets/avatar/ava1.webp"></div>
 			<span>ID1</span>
@@ -28,10 +28,11 @@ let {title} = props
 </template>
 
 <style lang="scss" scoped>
-.block{
+.block {
 	margin-left: 2vw;
 	border-left: 5px solid #66ccff;
 }
+
 .focus {
 	height: 23vh;
 	background-color: #fffdf8;
@@ -52,7 +53,7 @@ let {title} = props
 		div {
 			img {
 				width: 100%;
-				border-radius: 50%  ;
+				border-radius: 50%;
 				transform: translateY(3.6vh);
 			}
 		}

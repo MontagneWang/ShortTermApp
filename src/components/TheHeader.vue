@@ -8,7 +8,6 @@ const props = defineProps({
 </script>
 
 <template>
-	<!--todo 这里需要完成详情页面的 返回组件 -->
 	<div class="header">
 		<div class="block">
 			<van-icon name="search"/>

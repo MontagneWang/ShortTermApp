@@ -63,6 +63,7 @@ const showModal = ref(false)
 </template>
 
 <style lang="scss" scoped>
+
 :deep(.modal-container){
 	padding: 0;
 }
@@ -73,6 +74,7 @@ const showModal = ref(false)
 :deep(.van-nav-bar__left, .van-nav-bar__right){
 //z-index: 3;
 }
+
 :deep(.van-nav-bar__content) {
 height: 10vh;
 --van-nav-bar-title-font-size: 1.5rem;
