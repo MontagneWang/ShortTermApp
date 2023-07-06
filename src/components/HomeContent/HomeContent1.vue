@@ -102,7 +102,8 @@ let articleList = reactive([
 		</div>
 		<van-tabs v-model:active="active"
 		          animated
-		          sticky swipeable @click-tab="onClickTab">
+		          sticky swipeable
+		          @click-tab="onClickTab(url)">
 			<van-tab name="0" title="全站">
 				<article-item
 						v-for="item in articleList"

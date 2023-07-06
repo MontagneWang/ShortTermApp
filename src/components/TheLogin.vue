@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-import {reactive, ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import {postUrl} from "@/api/postData";
 import {useCounterStore} from "@/stores/counter";
 import {storeToRefs} from "pinia";
 import Modal from '../utils/ToastComp.vue'
+import axios from "@/api/axios";
+import router from "@/router";
 
 let counter = useCounterStore()
 const {token, isUserLoggedIn} = storeToRefs(counter)
@@ -28,12 +30,14 @@ interface ReturnData {
 	token: string
 }
 
-let url = '' // todo 登录验证接口
-let handleSubmit = async (url:string) => {
+let url = '/api/login' // todo 登录验证接口
+let handleSubmit = async (url: string) => {
 	let data = await postUrl(url, config) as ReturnData
 	if (data.code === 200) {
 		isUserLoggedIn.value = true
 		token.value = data.token
+		console.log(data)
+		await router.push('/about')
 	} else {
 		showModal.value = true
 	}
@@ -120,7 +124,7 @@ let handleSubmit = async (url:string) => {
 					</div>
 
 					<van-button class="login" type="primary"
-					            @click.prevent="handleSubmit">点击{{ isLogin ? '登录' : '注册' }}
+					            @click.prevent="handleSubmit(url)">点击{{ isLogin ? '登录' : '注册' }}
 					</van-button>
 				</form>
 			</div>

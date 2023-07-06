@@ -49,7 +49,7 @@ const router = createRouter({
 		},
 		{
 			path: '/about',
-			name: 'about',
+			name: 'About',
 			component: () => import('../views/AboutView.vue'),
 			meta: {
 				title: '主页',
@@ -149,6 +149,10 @@ router.beforeEach((to, from, next) => {
 		next('/login');
 	} else {
 		next()
+	}
+	// 如果是从个人页点击返回登录页，则再往上返回一层
+	if (from.name === 'About' && to.name === 'Login' && isUserLoggedIn.value) {
+		history.back()
 	}
 });
 
