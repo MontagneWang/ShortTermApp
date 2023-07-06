@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-
-import TheHeader from "@/components/TheHeader.vue";
 import BackHeader from "@/components/BackHeader.vue";
+import router from "@/router";
+
+
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import BackHeader from "@/components/BackHeader.vue";
 	<back-header :is-home="true" title="应用"/>
 	<div class="container">
 		<h3 class="block">AI绘画</h3>
-		<div class="draw">
+		<div class="draw" @click="router.push('/draw')">
 			<div class="picLeft">
 				<img alt="" src="../assets/ai/ai3.webp">
 			</div>
@@ -23,7 +24,7 @@ import BackHeader from "@/components/BackHeader.vue";
 			</div>
 		</div>
 		<h3 class="block">对话机器人</h3>
-		<div class="chat">
+		<div class="chat" @click="router.push('/chat')">
 			<div class="example">
 				<img alt="" src="../assets/chat/1.png">
 			</div>
@@ -36,9 +37,15 @@ import BackHeader from "@/components/BackHeader.vue";
 		</div>
 		<h3 class="block">其他</h3>
 		<div class="other">
-			<div class="example"></div>
-			<div class="example"></div>
-			<div class="example"></div>
+			<div class="example">
+				<img alt="" src="../assets/icon/other/img.png">
+			</div>
+			<div class="example">
+				<img alt="" src="../assets/icon/other/img_1.png">
+			</div>
+			<div class="example">
+				<img alt="" src="../assets/icon/other/img_2.png">
+			</div>
 		</div>
 	</div>
 </template>
@@ -115,18 +122,19 @@ import BackHeader from "@/components/BackHeader.vue";
 }
 
 .other {
-	height: 25vh;
 	background-color: #fffdf8;
 	margin-bottom: 8vh;
 	display: flex;
 	justify-content: space-evenly;
 
 	.example {
-		width: 28vw;
+		width: 25vw;
 		height: 80%;
 		margin-top: 4%;
 		border-radius: 10px;
-		background-color: #ccc;
+		img{
+			width: 100%;
+		}
 	}
 }
 </style>

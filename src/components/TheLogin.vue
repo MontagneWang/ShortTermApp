@@ -34,6 +34,7 @@ let url = '/api/login' // todo 登录验证接口
 let handleSubmit = async (url: string) => {
 	let data = await postUrl(url, config) as ReturnData
 	if (data.code === 200) {
+		console.log(data)
 		isUserLoggedIn.value = true
 		token.value = data.token
 		console.log(data)

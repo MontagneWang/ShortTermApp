@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import router from "@/router";
 
 </script>
 
 <template>
-	<div class="container">
+	<div class="container" @click="router.push('/article')">
 		<div class="pic">
 			<img alt="" src="../assets/avatar/ava5.jpg">
 		</div>

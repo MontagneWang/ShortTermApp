@@ -5,9 +5,17 @@ import BackHeader from "@/components/BackHeader.vue";
 
 <template>
 	<back-header title="Ai 绘图"/>
-	<h1>这里是aidraw</h1>
+	<div class="container">
+		<img alt="" src="../../assets/img2.jpg">
+	</div>
 </template>
 
 <style lang="scss" scoped>
-
+.container {
+	width: 100vw;
+	margin-top: -48vh;
+	img {
+		width: 100%;
+	}
+}
 </style>

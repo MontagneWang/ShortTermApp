@@ -49,6 +49,7 @@ let handleSend = async () => {
 		let data = await postUrl(url, sendData.value) as ReturnData
 		sendData.value = ''
 		if (data.code === 200) {
+			console.log(data)
 			chatList.push({
 				chat: data.data,
 				isGPT: true

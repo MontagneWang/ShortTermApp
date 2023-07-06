@@ -58,7 +58,7 @@ onMounted(()=>{
 						<img alt="" src="../../assets/icon/message.png">
 					</div>
 				</RouterLink>
-				<div class="button3">
+				<div class="button3" >
 					<img alt="" src="../../assets/icon/file.png">
 				</div>
 				<div class="button4">

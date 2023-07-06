@@ -3,6 +3,7 @@
 import TheHeader from "@/components/TheHeader.vue";
 import BackHeader from "@/components/BackHeader.vue";
 import ShowUser from "@/components/ShowUser.vue";
+import DynamicItem from "@/components/DynamicItem.vue";
 </script>
 
 <template>
@@ -13,20 +14,17 @@ import ShowUser from "@/components/ShowUser.vue";
 		<show-user title="推荐"/>
 		<div class="dynamic">
 			<h3 class="block">动态</h3>
-			<!--todo 动态样式完善-->
-			<div class="dynamicContain">
-			</div>
-			<div class="dynamicContain">
-			</div>
+			<dynamic-item/>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.block{
+.block {
 	margin-left: 2vw;
 	border-left: 5px solid #66ccff;
 }
+
 .container {
 	background-color: #f4f4f4;
 	height: auto;
@@ -39,16 +37,7 @@ import ShowUser from "@/components/ShowUser.vue";
 }
 
 .dynamic {
+	padding-bottom: 8vh;
 	background-color: #fffdf8;
-	margin-bottom: 10vh;
-
-	.dynamicContain {
-		width: 85vw;
-		height: 30vh;
-		background-color: #66ccff;
-		border-radius: 20px;
-		margin: 5vh auto 0;
-	}
-
 }
 </style>

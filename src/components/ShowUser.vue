@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {defineProps} from "vue";
-
+import router from "@/router";
 const props = defineProps({
 	title: String
 })
@@ -11,15 +11,15 @@ let {title} = props
 	<div class="focus">
 		<h3 class="block"> {{ title }}</h3>
 		<!--有数据后可改成 v-for 渲染-->
-		<div class="avatar">
-			<div><img alt="" src="../assets/avatar/ava1.webp"></div>
+		<div class="avatar" @click="router.push('/about')">
+			<div><img alt="" src="../assets/avatar/ava1.webp" @click=""></div>
 			<span>ID1</span>
 		</div>
-		<div class="avatar">
+		<div class="avatar" @click="router.push('/about')">
 			<div><img alt="" src="../assets/avatar/ava2.webp"></div>
 			<span>ID2</span>
 		</div>
-		<div class="avatar">
+		<div class="avatar" @click="router.push('/about')">
 			<div><img alt="" src="../assets/avatar/ava4.webp"></div>
 			<span>ID3</span>
 		</div>
