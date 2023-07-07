@@ -78,4 +78,25 @@ export default [
 			}
 		},
 	},
+	{
+		url: '/api/getarticledetail',
+		method: 'post',
+		response: () => {
+			return {
+				code: 200,
+				data: 'success',
+				title: '后端返回标题',
+				articleId: '本文id',
+				author: '作者名',
+				contain: '后端返回内容',
+				viewCount: '1111',
+				hotPoint: '222',
+				comment: [
+					{author:'1',contain:'000'},
+					{author:'2',contain:'000'},
+					{author:'3',contain:'000'},
+				]
+			}
+		},
+	},
 ] as MockMethod[];

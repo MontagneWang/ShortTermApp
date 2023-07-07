@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ArticleItem: typeof import('./src/components/ArticleItem.vue')['default']
     BackHeader: typeof import('./src/components/BackHeader.vue')['default']
+    CommentItem: typeof import('./src/components/CommentItem.vue')['default']
     DynamicItem: typeof import('./src/components/DynamicItem.vue')['default']
     HomeContent1: typeof import('./src/components/HomeContent/HomeContent1.vue')['default']
     HomeContent2: typeof import('./src/components/HomeContent/HomeContent2.vue')['default']
