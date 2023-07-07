@@ -52,11 +52,11 @@ let toArticlePage = async articleId => {
 }
 
 .container {
-	width: 100vw;
-	border: 1px solid #000000;
-	margin-bottom: 8px;
+	width: 95vw;
+	border-radius: 10px;
+	margin: 2vh auto 1vh ;
 	background-color: #fffdf8 !important;
-	padding: 10px;
+	padding: 15px;
 	box-sizing: border-box;
 	text-align: left;
 

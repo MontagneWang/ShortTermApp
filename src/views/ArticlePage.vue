@@ -29,7 +29,7 @@ interface ReturnData {
 }
 
 let data = reactive([]) as ReturnData
-let url = '/api/getarticledetail' // todo 登录验证接口
+let url = '/api/getarticledetail' // todo 获取文章详情接口
 onActivated(async () => {
 	data = await postUrl(url, articleId) as ReturnData
 	if (data.code === 200) {

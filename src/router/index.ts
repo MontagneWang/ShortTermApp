@@ -1,6 +1,7 @@
 import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../components/TheLogin.vue'
+import AboutView from '../views/AboutView.vue'
 import pinia from '../stores/store'
 import {useCounterStore} from "@/stores/counter"
 import {storeToRefs} from "pinia";
@@ -50,7 +51,8 @@ const router = createRouter({
 		{
 			path: '/about',
 			name: 'About',
-			component: () => import('../views/AboutView.vue'),
+			// component: () => import('../views/AboutView.vue'),
+			component: AboutView,
 			meta: {
 				title: '主页',
 				keepAlive: true,
