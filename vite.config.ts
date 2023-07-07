@@ -23,6 +23,8 @@ export default defineConfig(({command, mode}) => ({
 		viteMockServe({
 			mockPath: "src/mock",  // mock文件存放的位置
 			localEnabled: command === "serve" && mode === "mock", //在开发环境中启用 mock
+			logger: false,
+			watchFiles: false,
 		}),
 		AutoImport({
 			imports: ['vue', 'vue-router', 'pinia'],

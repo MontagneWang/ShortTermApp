@@ -68,9 +68,9 @@ const show = ref(false);
 	             @click-left="isHome ? onClickLeft() : onBack()">
 		<template #left>
 			<van-icon v-show="isHome" name="search" size="1.5rem"
-			          @click.prevent="console.log(0)"/>
+			          @click.prevent="console.log()"/>
 			<van-icon v-show="!isHome" name="arrow-left" size="1.5rem"
-			          @click.prevent="console.log(0)"/>
+			          @click.prevent="console.log()"/>
 		</template>
 		<template #right>
 			<van-icon name="bell" size="1.5rem"
@@ -85,11 +85,6 @@ const show = ref(false);
 </template>
 
 <style lang="scss" scoped>
-:deep(.popup) {
-	top: 0!important;
-	right: 0!important;
-	transform: translate3d(0, 0, 0)!important;
-}
 
 :deep(.modal-container) {
 	padding: 0;

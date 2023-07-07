@@ -99,4 +99,14 @@ export default [
 			}
 		},
 	},
+	{
+		url: '/api/sendcomment',
+		method: 'post',
+		response: () => {
+			return {
+				code: 200,
+				data: '评论已成功发送',
+			}
+		},
+	},
 ] as MockMethod[];
