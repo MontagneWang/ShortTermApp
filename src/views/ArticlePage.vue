@@ -4,12 +4,13 @@ import {storeToRefs} from "pinia";
 import BackHeader from "@/components/BackHeader.vue";
 import CommentItem from "@/components/CommentItem.vue";
 import {postUrl} from "@/api/postData";
-import {onActivated, onMounted, reactive, ref} from "vue";
+import {getCurrentInstance, onActivated, onMounted, reactive, ref} from "vue";
 
 let counter = useCounterStore()
 const {articleData} = storeToRefs(counter)
 let {title, articleId, author, contain, viewCount, hotPoint} = articleData
 import Modal from '../utils/ToastComp.vue'
+const internalInstance = getCurrentInstance()
 
 const showModal = ref(false)
 let modalTitle = ref('')
@@ -33,7 +34,9 @@ onActivated(async () => {
 	data = await postUrl(url, articleId) as ReturnData
 	if (data.code === 200) {
 		console.log(data)
-		Object.assign(articleData, data)
+		// 操作数据后更新视图
+		internalInstance.ctx.$forceUpdate()
+		// Object.assign(articleData, data)
 	}
 })
 
@@ -89,7 +92,7 @@ let handleSend = async () => {
 
 
 	<back-header :title="data.title||'文章标题'"/>
-	<div class="container">
+	<div class="container" >
 		<div class="author">
 			<div class="avatar">
 				<img alt="" src="../assets/avatar/ava5.jpg">

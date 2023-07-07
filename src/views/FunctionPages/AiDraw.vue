@@ -26,14 +26,42 @@ const active = ref(0);
 			</div>
 			<!-- 详情组件 -->
 			<div class="tabb">
-				<van-tabs v-model:active="active" animated name="tbs" swipeable>
+				<van-tabs v-model:active="active" swipeable animated name="tbs">
 					<van-tab title="简介">
-						<div class="details">
-							Midjourney是一个由同名研究实验室开发的人工智能程序，可根据文本生成图像，于2022年7月12日进入公开测试阶段，用户可透过Discord的机器人指令进行操作。该研究实验室由Leap
-							Motion的创办人大卫·霍尔兹（David Holz）负责领导。
-						</div>
+						<div class="details">       Midjourney是一个由同名研究实验室开发的人工智能程序，可根据文本生成图像，于2022年7月12日进入公开测试阶段，用户可透过Discord的机器人指令进行操作。该研究实验室由Leap Motion的创办人大卫·霍尔兹（David Holz）负责领导。</div>
 					</van-tab>
-					<van-tab title="作品集">作品集</van-tab>
+					<van-tab title="作品集">
+						<van-grid :column-num="2" guttur="10">
+							<van-grid-item>
+								<van-image
+										src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+										height="260px"
+										width="150px"
+								/>
+							</van-grid-item>
+							<van-grid-item>
+								<van-image
+										src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+										height="260px"
+										width="150px"
+								/>
+							</van-grid-item>
+							<van-grid-item>
+								<van-image
+										src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+										height="260px"
+										width="150px"
+								/>
+							</van-grid-item>
+							<van-grid-item>
+								<van-image
+										src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+										height="260px"
+										width="150px"
+								/>
+							</van-grid-item>
+						</van-grid>
+					</van-tab>
 				</van-tabs>
 			</div>
 			<div >
