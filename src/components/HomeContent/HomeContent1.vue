@@ -16,6 +16,7 @@ interface ReturnData {
 }
 
 let url = `/api/getpost`	// todo 切换标签时发送请求
+// let url = `/api/getpost/${active.value}`
 const onClickTab = async (url: string) => {
 	let data = await getUrl(url) as ReturnData
 	if (data.code === 200) {
@@ -40,10 +41,10 @@ onMounted(()=>{
 		           indicator-color="white"
 		           lazy-render>
 			<van-swipe-item>
-				<img src="https://article.biliimg.com/bfs/article/517562633f566c6a9d93ef3f4a41a90c8be63107.jpg"/>
+				<img src="../../assets/img_2.png"/>
 			</van-swipe-item>
 			<van-swipe-item>
-				<img src="https://article.biliimg.com/bfs/article/cf65477bf0c5fd14cb66c8f3080fcb4ec2ba5847.jpg"/>
+				<img src="../../assets/img_2.png"/>
 			</van-swipe-item>
 		</van-swipe>
 		<div class="action">

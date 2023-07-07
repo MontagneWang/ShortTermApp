@@ -21,7 +21,6 @@ declare module 'vue' {
     TheLogin: typeof import('./src/components/TheLogin.vue')['default']
     TheTabbar: typeof import('./src/components/TheTabbar.vue')['default']
     VanButton: typeof import('vant/es')['Button']
-    VanCell: typeof import('vant/es')['Cell']
     VanField: typeof import('vant/es')['Field']
     VanIcon: typeof import('vant/es')['Icon']
     VanNavBar: typeof import('vant/es')['NavBar']

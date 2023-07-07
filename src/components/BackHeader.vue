@@ -50,6 +50,7 @@ const show = ref(false);
 			v-model:show="show"
 			class="popup"
 			position="right"
+			style="height: 100%;"
 	>
 		<van-button type="default">&emsp;设置&emsp;</van-button>
 		<br>

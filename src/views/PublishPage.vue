@@ -6,7 +6,7 @@ import {reactive, ref} from "vue";
 import Modal from '../utils/ToastComp.vue'
 
 const showModal = ref(false)
-let url = '/api/sendpost' // todo 聊天机器人接口
+let url = '/api/sendpost' // todo 发送文章接口
 let sendData = ref('')
 let modalTitle = ref('')
 let modalContent = ref('')
@@ -58,7 +58,7 @@ let handleSend = async () => {
 			modalTitle.value = '发布成功'
 			modalContent.value = '您的内容已显示在文章页面'
 			showModal.value = true
-			// router.push('/article/:id') // todo 跳转到文章详情页
+			// router.push('/article?:id') // todo 跳转到文章详情页
 		}
 	} else {
 		modalTitle.value = '发布失败'
