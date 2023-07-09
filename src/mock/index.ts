@@ -29,7 +29,7 @@ export default [
 		response: () => {
 			return {
 				code: 200,
-				data: 'replyGpt',
+				data: `{code:403;message:'请检查您的余额',status:'error'}`,
 			}
 		},
 	},
@@ -85,16 +85,16 @@ export default [
 			return {
 				code: 200,
 				data: 'success',
-				title: '后端返回标题',
+				title: '文章标题',
 				articleId: '本文id',
-				author: '作者名',
-				contain: '后端返回内容',
+				author: 'Andrew_',
+				contain: '人工智能（Artificial Intelligence，简称AI）指的是使机器具备智能和学习能力的科学与技术领域。它涵盖了模拟和仿真人类智能的各种技术和方法。人工智能可以分为弱人工智能和强人工智能两种类型。弱人工智能（也被称为狭义人工...',
 				viewCount: '1111',
 				hotPoint: '222',
 				comment: [
-					{author:'1',contain:'000'},
-					{author:'2',contain:'000'},
-					{author:'3',contain:'000'},
+				// 	{author:'Caro',contain:'爆赞！'},
+				// 	{author:'Andy',contain:'Absolutely phenomenal presentation. You’ve taken something established and built an entire world around it. I love it and can’t wait to see more!'},
+				// 	{author:'Bob',contain:'该研究实验室由Leap Motion的创办人大卫·霍尔兹（David Holz）负责领导。'},
 				]
 			}
 		},

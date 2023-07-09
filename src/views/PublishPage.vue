@@ -4,10 +4,15 @@ import BackHeader from "@/components/BackHeader.vue";
 import {postUrl} from "@/api/postData";
 import {reactive, ref} from "vue";
 import Modal from '../utils/ToastComp.vue'
+import {useCounterStore} from "@/stores/counter";
+import {storeToRefs} from "pinia";
+
+let counter = useCounterStore()
+let {trans} = counter
 
 const showModal = ref(false)
 let url = '/api/sendpost' // todo 发送文章接口
-let sendData = ref('')
+let sendData = ref('标题：\n内容：')
 let modalTitle = ref('')
 let modalContent = ref('')
 
@@ -47,10 +52,22 @@ let config = reactive({
 })
 let handleSend = async () => {
 	if (sendData.value.trim() !== '') {
+		let arr = sendData.value.split("\n");
+		let title = arr[0].split('：')[1];
+		let content = arr[1].split('：')[1];
+		Object.assign(trans,{
+			title: title,
+			author: 'Alice',
+			articleId: -1,
+			contain: content,
+			viewCount: '1',
+			hotPoint: '0'
+		})
+		console.log(trans)
 		let data = await postUrl(url, config) as ReturnData
 		if (data.code === 200) {
 			console.log(data)
-			sendData.value = ''
+			sendData.value = '标题：\n内容：'
 			fieldValue.value = ''
 			fieldValue2.value = ''
 			showPicker.value = false

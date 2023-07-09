@@ -54,7 +54,7 @@ let {title} = props
 			img {
 				width: 100%;
 				border-radius: 50%;
-				transform: translateY(3.6vh);
+				transform: translateY(4vh);
 			}
 		}
 

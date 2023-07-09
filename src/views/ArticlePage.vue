@@ -162,7 +162,6 @@ let handleSend = async () => {
 	.contain, .counter {
 		width: 80vw;
 		margin: 2vh auto;
-		border: 1px solid #66ccff;
 	}
 
 	.counter {

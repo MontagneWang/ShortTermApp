@@ -6,19 +6,19 @@ export default {
 			dynamicList: [
 				{
 					id: 1,
-					username: "邵一鸣",
+					username: "Alice",
 					content: "这是我的第一条动态",
 					images: [],
 				},
 				{
 					id: 2,
-					username: "邵一鸣",
+					username: "Alice",
 					content: "这是我的第二条动态",
 					images: [],
 				},
 				{
 					id: 3,
-					username: "邵一鸣",
+					username: "Alice",
 					content: "这是我的第三条动态",
 					images: [],
 				},
@@ -28,7 +28,7 @@ export default {
 			value: "男",
 			showPicker: false,
 
-			introduction: "邵一鸣",
+			introduction: "Alice",
 			active: 1,
 
 			items: [
@@ -68,28 +68,28 @@ export default {
 		};
 	},
 	mounted() {
-		this.getTypeList(); // 获取所有分类
-		this.getAllTable(); // 获取所有展示的数据
+		// this.getTypeList(); // 获取所有分类
+		// this.getAllTable(); // 获取所有展示的数据
 	},
 	computed: {},
 	methods: {
-		async getTypeList() {
-			const res = await tableTypeList({ page: -1, pageSize: 10 }); // 调用后端接口显示所有分类
-			if (res.code === 0) {
-				res.data.tables.forEach((v) => {
-					this.items.push({
-						text: v.name, // items里面的对象属性必须是text和activeId
-						activeId: v.id,
-					});
-				});
-			}
-		},
-		async getAllTable() {
-			const res = await getAllTable();
-			if (res.code === 0) {
-				this.tableAll = res.data;
-			}
-		},
+		// async getTypeList() {
+		// 	const res = await tableTypeList({ page: -1, pageSize: 10 }); // 调用后端接口显示所有分类
+		// 	if (res.code === 0) {
+		// 		res.data.tables.forEach((v) => {
+		// 			this.items.push({
+		// 				text: v.name, // items里面的对象属性必须是text和activeId
+		// 				activeId: v.id,
+		// 			});
+		// 		});
+		// 	}
+		// },
+		// async getAllTable() {
+		// 	const res = await getAllTable();
+		// 	if (res.code === 0) {
+		// 		this.tableAll = res.data;
+		// 	}
+		// },
 		onNavClick(index) {
 			const id = this.items[index].activeId; // 点击分类传入当前下标获取该分类的ID
 			//然后通过id筛选出当前分类下的数据展示到页面中
@@ -114,12 +114,12 @@ export default {
 
 		<van-cell-group :border="false" inset>
 			<!-- 头bu -->
-			<van-cell :border="false" center class="self-title">
+			<van-cell :border="false" center class="self-title" style="margin-top: -1vh;">
 				<!--头+名 -->
 				<img
 						alt="头像"
 						class="avatar"
-						src="https://tse1-mm.cn.bing.net/th/id/OIP-C._VOKV6CIAHdWWqsL4Ghs5wHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+						src="../assets/avatar/ava5.jpg"
 				/>
 
 				<van-cell :border="false" center class="intro">
@@ -128,26 +128,15 @@ export default {
 					</template>
 				</van-cell>
 
-				<van-cell-group class="self-concerns">
+				<van-cell-group class="self-concerns" style="height: 30%">
 					<van-row
 							class="fans-count"
-							style="margin-left: 10%;font-weight: bolder;padding: 0;"
+							style="margin-left: 3vw;font-weight: bolder;padding: 0;"
 					>
-						<van-col offset="2" span="2.5">12K</van-col>
-						<van-col offset="1" span="2.8">123K</van-col>
-						<van-col offset="1" span="2.8">12333</van-col>
+						<van-col offset="2" span="2.5">粉丝：12K</van-col>
+						<van-col offset="1" span="2.8">关注：123K</van-col>
 					</van-row>
-					<van-cell class="fans">
-						<div>
-							粉丝
-						</div>
-						<div>
-							关注
-						</div>
-						<div>
-							获赞
-						</div>
-					</van-cell>
+
 				</van-cell-group>
 				<van-button
 						class="self-edit"
@@ -169,51 +158,6 @@ export default {
 								background="transparent"
 								title-active-color="#000"
 						>
-							<van-tab class="runin" style="overflow: auto;" title="动态">
-								<div>
-									<template>
-										<div>
-											<div
-													v-for="item in dynamicList"
-													:key="item.id"
-													style="width:auto;height:300px;border:1px solid black;"
-
-											>
-												<div>
-													<img
-															alt="头像"
-															class="change-img"
-															src="https://tse1-mm.cn.bing.net/th/id/OIP-C._VOKV6CIAHdWWqsL4Ghs5wHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-															style="display:inline-block;margin-bottom: 5px;float: left;margin-left: 10px;"
-													/>
-													<div
-															style="margin-bottom: 5px;display:block;margin-right: 10px;width: 150px;margin-top: 20px;margin-bottom: 30px;"
-															v-html="item.username"></div>
-												</div>
-												<div style="margin-bottom: 5px;display:block;font-size: 16px;" v-html="item.content"></div>
-												<div>
-													<img
-															alt="头像"
-															src="https://tse1-mm.cn.bing.net/th/id/OIP-C._VOKV6CIAHdWWqsL4Ghs5wHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-															style="margin-bottom: 50px;margin-left: 80px;display:inline-block;width: 80px;height: 80px;"
-													/>
-												</div>
-												<div style="margin-left: 10px;">
-													<van-icon name="like-o"/>
-													<span style="margin-right: 5px;">12K</span>
-													<van-icon name="star-o"/>
-													<span style="margin-right: 5px;">111</span>
-													<van-icon name="thumb-circle-o"/>
-													<span>222</span>
-												</div>
-											</div>
-
-										</div>
-									</template>
-								</div>
-								<!-- 做个空气墙 -->
-								<div class="hit"></div>
-							</van-tab>
 							<van-tab title="资料">
 								<van-row>
 									<van-col
@@ -230,7 +174,7 @@ export default {
 										<img
 												alt="头像"
 												class="change-img"
-												src="https://tse1-mm.cn.bing.net/th/id/OIP-C._VOKV6CIAHdWWqsL4Ghs5wHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+												src="../assets/avatar/ava5.jpg"
 												style="display: flex;
                     margin-top: 5%;
                     margin-bottom: -32%;
@@ -316,6 +260,51 @@ export default {
 									</van-cell>
 								</div>
 								<div class="peizhong"></div>
+							</van-tab>
+							<van-tab class="runin" style="overflow: auto;" title="动态">
+								<div>
+									<template>
+										<div>
+											<div
+													v-for="item in dynamicList"
+													:key="item.id"
+													style="width:auto;height:300px;border:1px solid black;"
+
+											>
+												<div>
+													<img
+															alt="头像"
+															class="change-img"
+															src="https://tse1-mm.cn.bing.net/th/id/OIP-C._VOKV6CIAHdWWqsL4Ghs5wHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+															style="display:inline-block;margin-bottom: 5px;float: left;margin-left: 10px;"
+													/>
+													<div
+															style="margin-bottom: 5px;display:block;margin-right: 10px;width: 150px;margin-top: 20px;margin-bottom: 30px;"
+															v-html="item.username"></div>
+												</div>
+												<div style="margin-bottom: 5px;display:block;font-size: 16px;" v-html="item.content"></div>
+												<div>
+													<img
+															alt="头像"
+															src="https://tse1-mm.cn.bing.net/th/id/OIP-C._VOKV6CIAHdWWqsL4Ghs5wHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+															style="margin-bottom: 50px;margin-left: 80px;display:inline-block;width: 80px;height: 80px;"
+													/>
+												</div>
+												<div style="margin-left: 10px;">
+													<van-icon name="like-o"/>
+													<span style="margin-right: 5px;">12K</span>
+													<van-icon name="star-o"/>
+													<span style="margin-right: 5px;">111</span>
+													<van-icon name="thumb-circle-o"/>
+													<span>222</span>
+												</div>
+											</div>
+
+										</div>
+									</template>
+								</div>
+								<!-- 做个空气墙 -->
+								<div class="hit"></div>
 							</van-tab>
 							<van-tab title="历史">
 								<div class="history">
@@ -505,8 +494,9 @@ export default {
 	border: 2px solid rgb(0, 183, 255);
 }
 
-.van-cell__value {
+:deep(.van-cell__value) {
 	overflow: visible !important;
+	text-align: left;
 }
 
 /* .van-tab::active {

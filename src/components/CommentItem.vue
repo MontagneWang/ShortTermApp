@@ -14,7 +14,7 @@ const props = defineProps({
 				<img alt="" src="../assets/avatar/ava5.jpg">
 			</div>
 			<span class="name">
-				{{ data.author || '评论者名称' }}
+				{{ data.author || 'Alice' }}
 			</span>
 		</div>
 		<div class="contain">
@@ -66,7 +66,6 @@ const props = defineProps({
 	.contain, .counter {
 		width: 90%;
 		margin: 2vh auto;
-		border: 1px solid #66ccff;
 		border-radius: 5px;
 	}
 

@@ -1,8 +1,12 @@
 <script lang="ts" setup>
-import {onMounted, reactive, ref} from "vue";
+import {onActivated, onMounted, reactive, ref} from "vue";
 import ArticleItem from "@/components/ArticleItem.vue";
 import {getUrl} from "@/api/getData";
+import {useCounterStore} from "@/stores/counter";
+import {storeToRefs} from "pinia";
 
+let counter = useCounterStore()
+let {articleData, trans} = counter
 const active = ref(0);
 
 /**
@@ -20,16 +24,21 @@ let url = `/api/getpost`	// todo 切换标签时发送请求
 const onClickTab = async (url: string) => {
 	let data = await getUrl(url) as ReturnData
 	if (data.code === 200) {
-		console.log(data)
 		Object.assign(articleList, data.data)
+		console.log(articleList)
 	} else {
 		// showModal.value = true
 	}
 }
-
+onActivated(() => {
+	if (JSON.stringify(trans) !== '{}') {
+		articleList.unshift(trans)
+		trans = {}
+	}
+})
 let articleList = reactive([])
 
-onMounted(()=>{
+onMounted(() => {
 	onClickTab(url)
 })
 </script>
@@ -59,7 +68,7 @@ onMounted(()=>{
 						<img alt="" src="../../assets/icon/message.png">
 					</div>
 				</RouterLink>
-				<div class="button3" >
+				<div class="button3">
 					<img alt="" src="../../assets/icon/file.png">
 				</div>
 				<div class="button4">

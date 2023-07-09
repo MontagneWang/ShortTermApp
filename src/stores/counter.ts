@@ -12,9 +12,17 @@ export const useCounterStore = defineStore('counter', () => {
 		viewCount: String,
 		hotPoint: String
 	})
+	let trans = reactive({
+		title: String,
+		articleId: String,
+		author: String,
+		contain: String,
+		viewCount: String,
+		hotPoint: String
+	})
 
 	const count = ref(0)
 	const doubleCount = computed(() => count.value * 2)
 
-	return {token, isUserLoggedIn, articleData, count, doubleCount}
+	return {token,trans, isUserLoggedIn, articleData, count, doubleCount}
 })
